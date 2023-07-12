@@ -3,3 +3,46 @@
 @{
 
 }
+<div class="container">
+    <form method="post" class="d-flex mb-2" asp-page-handler="ById">
+        <div class="input-group">
+            <input class="form-control col-md-4 me-2" type="number" asp-for="Ricerca">
+        </div>
+        <div>
+            <button class="btn btn-danger ms-2" type="submit">Cerca</button>
+        </div>
+    </form>
+</div>
+<table class="table table-bordered table-custom table-responsive md-3">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Indirizzo</th>
+            <th scope="col">Città</th>
+            <th scope="col">Provincia</th>
+            <th scope="col">Cap</th>
+            <th scope="col">Recapito Telefonico</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.ListaSedi)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Indirizzo</td>
+                    <td>@item.Città</td>
+                    <td>@item.Provincia</td>
+                    <td>@item.Cap</td>
+                    <td>@item.RecapitoTel</td>
+                    <td>@item.Email</td>
+                    <td><button class="btn btn-warning ms-2" type="submit">Edit</button></td>
+                    <td><button class="btn btn-danger ms-2" type="submit">Delete</button></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

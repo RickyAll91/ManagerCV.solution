@@ -23,8 +23,15 @@ namespace ManagerCVAPI.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetSedeById(int id)
         {
-            var response = await repository.Sedi.Where(s => s.Id.Equals(id)).ToListAsync();
-            return Ok(response);
+            try
+            {
+                var response = await repository.Sedi.Where(s => s.Id.Equals(id)).ToListAsync();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPost]
         public async Task<IActionResult> PostSede(Sede sede)
@@ -46,11 +53,11 @@ namespace ManagerCVAPI.Controllers
             return Accepted(await repository.Sedi.ToListAsync());
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteSede(int id)
+        public async Task<IActionResult> DeleteSede(Sede sede)
         {
             try
             {
-                repository.DeleteSede(id);
+                repository.DeleteSede(sede);
             }
             catch (Exception ex)
             {
