@@ -29,6 +29,5 @@ namespace ManagerCV.Pages
             ListaSedi = await client.GetFromJsonAsync<List<Sede>>($"api/Sedi/{Ricerca}");
             return Page();
         }
-
     }
 }

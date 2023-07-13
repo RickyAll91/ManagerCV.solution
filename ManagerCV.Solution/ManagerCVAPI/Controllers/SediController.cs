@@ -52,12 +52,12 @@ namespace ManagerCVAPI.Controllers
             }
             return Accepted(await repository.Sedi.ToListAsync());
         }
-        [HttpDelete]
-        public async Task<IActionResult> DeleteSede(Sede sede)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteSede(int id)
         {
             try
             {
-                repository.DeleteSede(sede);
+                repository.DeleteSede(id);
             }
             catch (Exception ex)
             {

@@ -9,7 +9,7 @@
             <input class="form-control col-md-4 me-2" type="number" asp-for="Ricerca">
         </div>
         <div>
-            <button class="btn btn-danger ms-2" type="submit">Cerca</button>
+            <button class="btn btn-primary ms-2" type="submit">Cerca</button>
         </div>
     </form>
 </div>
@@ -39,10 +39,13 @@
                     <td>@item.Cap</td>
                     <td>@item.RecapitoTel</td>
                     <td>@item.Email</td>
-                    <td><button class="btn btn-warning ms-2" type="submit">Edit</button></td>
-                    <td><button class="btn btn-danger ms-2" type="submit">Delete</button></td>
+                    <td><a asp-page="./ModificaSede" asp-route-id="@item.Id" class="btn btn-warning ms-2">Modifica</a></td>
+                    <td><a asp-page="./CancellaSede" asp-route-id="@item.Id" class="btn btn-danger ms-2">Elimina</a></td>
                 </tr>
             }
         }
     </tbody>
 </table>
+<div class="d-flex justify-content-center">
+    <a asp-page="CreaSede" class="btn btn-primary ">Inserisci una Nuova Sede</a>
+</div>

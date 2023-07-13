@@ -13,10 +13,10 @@ namespace ManagerCVAPI.Model
             context.Sedi.Add(newSede);
             context.SaveChanges();
         }
-        public void DeleteSede(Sede sede)
+        public void DeleteSede(int id)
         {
             context.Sedi
-                .Where(s => s.Id.Equals(sede.Id))
+                .Where(s => s.Id.Equals(id))
                 .ExecuteDeleteAsync();
         }
         public void UpdateSede(Sede editedSede)

@@ -1,0 +1,66 @@
+﻿@page
+@model ManagerCV.Pages.Test.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sede[0].Città)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sede[0].Indirizzo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sede[0].Provincia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sede[0].Cap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sede[0].RecapitoTel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sede[0].Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Sede) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Città)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Indirizzo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecapitoTel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

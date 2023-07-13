@@ -1,0 +1,53 @@
+﻿@page
+@model ManagerCV.Pages.CreaSedeModel
+@{
+}
+<h1>Inserisci una nuova Sede</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Sede.Città" class="control-label"></label>
+                <input asp-for="Sede.Città" class="form-control" />
+                <span asp-validation-for="Sede.Città" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sede.Indirizzo" class="control-label"></label>
+                <input asp-for="Sede.Indirizzo" class="form-control" />
+                <span asp-validation-for="Sede.Indirizzo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sede.Provincia" class="control-label"></label>
+                <input asp-for="Sede.Provincia" class="form-control" />
+                <span asp-validation-for="Sede.Provincia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sede.Cap" class="control-label"></label>
+                <input asp-for="Sede.Cap" class="form-control" />
+                <span asp-validation-for="Sede.Cap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Recapito Telefonico</label>
+                <input asp-for="Sede.RecapitoTel" class="form-control" />
+                <span asp-validation-for="Sede.RecapitoTel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sede.Email" class="control-label"></label>
+                <input asp-for="Sede.Email" class="form-control" />
+                <span asp-validation-for="Sede.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Invia" class="btn btn-warning" />
+                <a asp-page="ElencoSedi" class="btn btn-primary mb-2 mt-2">Torna alla Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
