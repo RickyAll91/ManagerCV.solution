@@ -1,7 +1,6 @@
 using ManagerCVAPI.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace ManagerCV.Pages
 {
@@ -16,12 +15,13 @@ namespace ManagerCV.Pages
         private string uri = "api/Sedi";
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || await client.GetFromJsonAsync<List<Sede>>($"api/Sedi/{id}") == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var sede = await client.GetFromJsonAsync<List<Sede>>($"api/Sedi/{id}");
+            
             if (sede == null)
             {
                 return NotFound();

@@ -8,11 +8,10 @@ namespace ManagerCV.Pages
     {
         [BindProperty]
         public Sede Sede { get; set; } = default!;
-        private static HttpClient client = new()
+        private static readonly HttpClient client = new()
         {
             BaseAddress = new Uri("https://localhost:7036")
         };
-        private string uri = "api/Sedi";
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || await client.GetFromJsonAsync<List<Sede>>($"api/Sedi/{id}") == null)

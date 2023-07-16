@@ -1,8 +1,7 @@
-﻿using ManagerCVAPI.Model.Interfaces;
-using ManagerCVAPI.Model;
+﻿using ManagerCVAPI.Model;
+using ManagerCVAPI.Model.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace ManagerCVAPI.Controllers
 {
